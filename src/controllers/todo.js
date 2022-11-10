@@ -20,7 +20,7 @@ const addTodo = async (req, res) => {
 			done: false,
 		});
 		await todo.save();
-		return res.status(200).json(todo);
+		return res.status(200).json({message: "Todo Created Successfully",todo});
 	} catch (err) {
 		console.log(err);
 		return res
@@ -54,7 +54,7 @@ const updateTodo = async (req, res) => {
 		if (!todo) {
 			return res.status(404).json({ message: "No Todo found" });
 		}
-		return res.status(200).json(todo);
+		return res.status(200).json({message: "Todo Updated Successfully",todo});
 	} catch (err) {
 		console.log(err);
 		return res
@@ -69,7 +69,7 @@ const deleteTodo = async (req, res) => {
 		if (!todo) {
 			return res.status(404).json({ message: "No Todo found" });
 		}
-		return res.status(200).json({ message: "Todo deleted" });
+		return res.status(200).json({ message: "Todo deleted Successfully" });
 	} catch (err) {
 		console.log(err);
 		return res
